@@ -1,4 +1,4 @@
-'use client'
+
 import React from 'react'
 import { ContainerMain } from './components/ContainerMain'
 import { Nav } from './components/Nav'

@@ -16,9 +16,10 @@ const page = () => {
                         <aside className='border-2 border-stone-400 rounded-md   h-72 w-64 block p-2 '>
                             <p className='bg-stone-300 border-b-2  '> Apply Filtes:</p>
                             <div className='bg-stone-200 p-2'>
+
                                 <div className='flex  gap-2'>
-                                    <input type="checkbox" />
-                                    <label htmlFor="">Programming</label>
+                                    <input id='programming' type="checkbox" />
+                                    <label id='programming' htmlFor="prorgamming">Programming</label>
                                 </div>
 
 
