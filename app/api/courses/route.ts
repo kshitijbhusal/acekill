@@ -6,8 +6,8 @@ export async function GET(req: NextRequest) {
 
     // Read query params
     const category = req.nextUrl.searchParams.get('category');
-    const priceMin = req.nextUrl.searchParams.get('priceMin');
-    const priceMax = req.nextUrl.searchParams.get('priceMax');
+    const maxPrice = req.nextUrl.searchParams.get('maxPrice')
+    console.log('category is ', category)
 
     // Build dynamic `where` object
     const where: any = {};
@@ -16,13 +16,16 @@ export async function GET(req: NextRequest) {
         where.category = category;
     }
 
-    if (priceMin || priceMax) {
-        where.price = {};
-        if (priceMin) where.price.gte = Number(priceMin);
-        if (priceMax) where.price.lte = Number(priceMax);
+    if (maxPrice) {
+        where.price = {
+            lte: parseFloat(maxPrice)
+        }
     }
 
-    const res = await prisma.course.findMany();
+
+    const res = await prisma.course.findMany({
+        where
+    });
 
     return NextResponse.json({
         success: true,
