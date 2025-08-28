@@ -1,8 +1,8 @@
 import { cache } from 'react';
 
 // Cache the fetch call to ensure it runs only once
-const fetchData = cache(async ({ searchparams }: any) => {
-    const res = await fetch(`http://localhost:3000/api/courses?${searchparams} `, {
+const fetchData = cache(async () => {
+    const res = await fetch(`http://localhost:3000/api/courses `, {
         cache: 'force-cache', // Ensures data is cached
     });
     const data = await res.json();
@@ -11,7 +11,7 @@ const fetchData = cache(async ({ searchparams }: any) => {
 
 // Server Component
 export default async function page() {
-    const res = await fetchData({ searchparams });
+    const res = await fetchData();
     const courses = res.data
 
 
