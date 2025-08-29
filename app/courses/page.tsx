@@ -14,9 +14,13 @@ const page = () => {
 
 
         const currentParams = new URLSearchParams(params.toString())
+        console.log("helo", params.toString())
 
         const currentValues = currentParams.getAll(category)
+        console.log(currentValues)
         currentParams.append(category, String(filter))
+        currentParams.append("hello", "kshitij")
+        console.log('after appending ', currentParams)
         router.push(`?${currentParams}`)
 
     }
@@ -106,7 +110,7 @@ const page = () => {
                                             return <div key={index} className='bg-green-400' >
                                                 <input onClick={() => {
                                                     handleCheckboxChange(category.name, filter)
-                                                }} type="checkbox" name="" id={filter} />
+                                                }} type={category.domain.type} name="" id={filter} />
                                                 <label htmlFor={filter} >{filter} </label>
 
                                             </div>

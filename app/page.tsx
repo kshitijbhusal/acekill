@@ -1,29 +1,37 @@
 
+'use client'
 import React from 'react'
 import { ContainerMain } from './components/ContainerMain'
 import { Nav } from './components/Nav'
 import Courses from './components/Courses'
+import { SessionProvider } from 'next-auth/react'
 
 const Pages = () => {
   return (
     <ContainerMain>
-
-      <section className='h-screen'>
-
-        <Hero />
-        <Courses />
+      <SessionProvider>
 
 
 
 
+        <section className='h-screen'>
+          <Nav />
+
+          <Hero />
+          {/* <Courses /> */}
 
 
 
-      </section>
 
 
 
 
+        </section>
+
+
+
+
+      </SessionProvider >
     </ContainerMain>
   )
 }

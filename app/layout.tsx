@@ -5,6 +5,8 @@ import { Nav } from './components/Nav';
 
 
 
+
+
 export const metadata: Metadata = {
   title: "SwiftSend",
   description: "Send text quickly without login.",
@@ -20,8 +22,12 @@ export default function RootLayout({
       <body>
 
         <div>
-          <Nav />
+
+
+
+
           {children}
+
         </div>
       </body>
     </html>
